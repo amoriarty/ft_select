@@ -6,7 +6,7 @@
 #    By: alegent <alegent@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/04 09:54:26 by alegent           #+#    #+#              #
-#    Updated: 2015/05/28 12:09:43 by alegent          ###   ########.fr        #
+#    Updated: 2015/05/28 14:04:45 by alegent          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,9 @@ SRC_NAME= main.c \
 	  ft_newenv.c \
 	  ft_newpos.c \
 	  ft_newlst.c \
-	  ft_sglt.c
+	  ft_sglt.c \
+	  ft_handler.c \
+	  ft_gettouch.c
 SRC= $(addprefix $(SRC_PATH), $(SRC_NAME))
 
 #OBJ BLOCK
