@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 14:38:29 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/28 14:43:04 by alegent          ###   ########.fr       */
+/*   Updated: 2015/05/28 17:10:18 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void						ft_setenv(void)
 	env->screen->x = tgetnum("co");
 	env->screen->y = tgetnum("li");
 	ft_putstr(tgetstr("vi", NULL));
+	signal(SIGWINCH, ft_handler);
 }
 
 void						ft_unsetenv(void)

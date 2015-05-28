@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   tmp_plst.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/28 11:37:47 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/28 17:10:37 by alegent          ###   ########.fr       */
+/*   Created: 2015/05/28 17:04:12 by alegent           #+#    #+#             */
+/*   Updated: 2015/05/28 17:04:13 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-int						main(int ac, char **av)
+void					tmp_plst(void)
 {
-	int					i;
+	t_env				*env;
+	t_lst				*tmp;
 
-	if (ac == 1)
-		return (EXIT_FAILURE);
-	i = 0;
-	ft_setenv();
-	while (av[++i])
-		ft_insertnode(av[i]);
-	ft_select();
-	ft_unsetenv();
-	return (EXIT_SUCCESS);
+	env = ft_sglt();
+	tmp = env->arg->next;
+	while (tmp != env->arg)
+	{
+		ft_putendl(tmp->entry);
+		tmp = tmp->next;
+	}
 }

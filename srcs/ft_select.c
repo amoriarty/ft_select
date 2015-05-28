@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_select.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/28 11:37:47 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/28 17:10:37 by alegent          ###   ########.fr       */
+/*   Created: 2015/05/28 17:05:11 by alegent           #+#    #+#             */
+/*   Updated: 2015/05/28 17:05:59 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-int						main(int ac, char **av)
+void						ft_select(void)
 {
-	int					i;
+	t_env					*env;
 
-	if (ac == 1)
-		return (EXIT_FAILURE);
-	i = 0;
-	ft_setenv();
-	while (av[++i])
-		ft_insertnode(av[i]);
-	ft_select();
-	ft_unsetenv();
-	return (EXIT_SUCCESS);
+	env = ft_sglt();
+	(void)env;
+	tmp_plst();
+	ft_gettouch();
 }
