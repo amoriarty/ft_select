@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 11:37:47 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/28 14:05:11 by alegent          ###   ########.fr       */
+/*   Updated: 2015/05/28 14:34:14 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,32 @@ static void					ft_unsetenv(void)
 	ft_putstr(tgetstr("ve", NULL));
 }
 
+static void					ft_tmp(void)
+{
+	t_env					*env;
+	t_lst					*tmp;
+
+	env = ft_sglt();
+	tmp = env->arg->next;
+	while (tmp != env->arg)
+	{
+		ft_putendl(tmp->entry);
+		tmp = tmp->next;
+	}
+}
+
 int						main(int ac, char **av)
 {
-	(void)ac;
-	(void)av;
+	int					i;
+
+	if (ac == 1)
+		return (EXIT_FAILURE);
+	i = 0;
 	ft_setenv();
 	signal(SIGWINCH, ft_handler);
+	while (av[++i])
+		ft_insertnode(av[i]);
+	ft_tmp();
 	ft_gettouch();
 	ft_unsetenv();
 	return (EXIT_SUCCESS);

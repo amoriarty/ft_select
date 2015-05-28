@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_newterm.c                                       :+:      :+:    :+:   */
+/*   ft_insertnode.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/28 12:05:08 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/28 14:19:30 by alegent          ###   ########.fr       */
+/*   Created: 2015/05/28 14:18:20 by alegent           #+#    #+#             */
+/*   Updated: 2015/05/28 14:31:47 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-t_env						*ft_newenv(void)
+void						ft_insertnode(char *entry)
 {
-	t_env					*new;
+	t_env					*env;
+	t_lst					*new;
+	t_lst					*tmp;
 
-	if (!(new = (t_env *)malloc(sizeof(t_env))))
-		ft_perror();
-	if (!(new->term = (t_term *)malloc(sizeof(t_term))))
-		ft_perror();
-	new->env = NULL;
-	new->screen = ft_newpos();
-	new->arg = ft_newroot();
-	return (new);
+	env = ft_sglt();
+	new = ft_newlst();
+	new->entry = entry;
+	tmp = env->arg->next;
+	while (tmp->next != env->arg)
+		tmp = tmp->next;
+	new->prev = tmp;
+	new->next = tmp->next;
+	tmp->next->prev = new;
+	tmp->next = new;
 }
