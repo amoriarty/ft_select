@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 11:38:47 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/28 14:34:50 by alegent          ###   ########.fr       */
+/*   Updated: 2015/05/28 14:43:23 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include <sys/termios.h>
 # define BUF 3
 
+void					ft_setenv(void);
+void					ft_unsetenv(void);
 t_env					*ft_newenv(void);
 t_pos					*ft_newpos(void);
 t_lst					*ft_newlst(void);

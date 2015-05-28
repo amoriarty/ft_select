@@ -6,7 +6,7 @@
 #    By: alegent <alegent@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/04 09:54:26 by alegent           #+#    #+#              #
-#    Updated: 2015/05/28 14:34:24 by alegent          ###   ########.fr        #
+#    Updated: 2015/05/28 14:43:38 by alegent          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ NAME= ft_select
 # define all the .c file in the variable SRC NAME
 SRC_PATH= srcs/
 SRC_NAME= main.c \
+	  ft_env.c \
 	  ft_newenv.c \
 	  ft_newpos.c \
 	  ft_newlst.c \
