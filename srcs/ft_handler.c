@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 13:57:20 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/28 14:07:34 by alegent          ###   ########.fr       */
+/*   Updated: 2015/05/28 18:07:19 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,12 @@ void						ft_handler(int n)
 			ft_perror();
 		env->screen->x = tgetnum("co");
 		env->screen->y = tgetnum("li");
+		if (env->lenmax >= env->screen->x || env->lstlen >= env->screen->y)
+		{
+			ft_unsetenv();
+			ft_perror();
+		}
+		else
+			ft_plst();
 	}
 }

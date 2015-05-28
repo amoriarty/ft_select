@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_newterm.c                                       :+:      :+:    :+:   */
+/*   ft_lenmax.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/28 12:05:08 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/28 17:34:38 by alegent          ###   ########.fr       */
+/*   Created: 2015/05/28 17:17:25 by alegent           #+#    #+#             */
+/*   Updated: 2015/05/28 17:44:07 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-t_env						*ft_newenv(void)
+void					ft_lenmax(void)
 {
-	t_env					*new;
+	int				i;
+	t_env				*env;
+	t_lst				*tmp;
 
-	if (!(new = (t_env *)malloc(sizeof(t_env))))
-		ft_perror();
-	if (!(new->term = (t_term *)malloc(sizeof(t_term))))
-		ft_perror();
-	new->env = NULL;
-	new->screen = ft_newpos();
-	new->arg = ft_newroot();
-	new->lenmax = 0;
-	new->lstlen = 0;
-	return (new);
+	i = 0;
+	env = ft_sglt();
+	env->lstlen = 0;
+	tmp = env->arg->next;
+	while (tmp != env->arg)
+	{
+		env->lenmax = ((i = ft_strlen(tmp->entry)) > env->lenmax) ? i : env->lenmax;
+		env->lstlen++;
+		tmp = tmp->next;
+	}
+	env->lenmax++;
 }

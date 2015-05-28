@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_newterm.c                                       :+:      :+:    :+:   */
+/*   ft_print.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/28 12:05:08 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/28 17:34:38 by alegent          ###   ########.fr       */
+/*   Created: 2015/05/28 17:48:40 by alegent           #+#    #+#             */
+/*   Updated: 2015/05/28 18:05:38 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-t_env						*ft_newenv(void)
+int					ft_print(int n)
 {
-	t_env					*new;
-
-	if (!(new = (t_env *)malloc(sizeof(t_env))))
-		ft_perror();
-	if (!(new->term = (t_term *)malloc(sizeof(t_term))))
-		ft_perror();
-	new->env = NULL;
-	new->screen = ft_newpos();
-	new->arg = ft_newroot();
-	new->lenmax = 0;
-	new->lstlen = 0;
-	return (new);
+	write(1, &n, 4);
+	return (SUCCESS);
 }

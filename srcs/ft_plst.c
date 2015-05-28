@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_newterm.c                                       :+:      :+:    :+:   */
+/*   ft_plst.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/28 12:05:08 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/28 17:34:38 by alegent          ###   ########.fr       */
+/*   Created: 2015/05/28 17:49:31 by alegent           #+#    #+#             */
+/*   Updated: 2015/05/28 18:08:21 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-t_env						*ft_newenv(void)
+void						ft_plst(void)
 {
-	t_env					*new;
+	t_env					*env;
+	t_lst					*tmp;
 
-	if (!(new = (t_env *)malloc(sizeof(t_env))))
-		ft_perror();
-	if (!(new->term = (t_term *)malloc(sizeof(t_term))))
-		ft_perror();
-	new->env = NULL;
-	new->screen = ft_newpos();
-	new->arg = ft_newroot();
-	new->lenmax = 0;
-	new->lstlen = 0;
-	return (new);
+	env = ft_sglt();
+	tmp = env->arg->next;
+	ft_poscal();
+	ft_putstr(tgetstr("cl", NULL));
+	while (tmp != env->arg)
+	{
+		tputs(tgoto(tgetstr("cm", NULL), tmp->pos->x, tmp->pos->y), 1, ft_print);
+		ft_putstr(tmp->entry);
+		tmp = tmp->next;
+	}
 }
