@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_newpos.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/28 11:37:47 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/28 12:25:39 by alegent          ###   ########.fr       */
+/*   Created: 2015/05/28 12:02:17 by alegent           #+#    #+#             */
+/*   Updated: 2015/05/28 12:03:13 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-int						main(int ac, char **av)
+t_pos						*ft_newpos(void)
 {
-	(void)ac;
-	(void)av;
-	return (EXIT_SUCCESS);
+	t_pos					*new;
+
+	if (!(new = (t_pos *)malloc(sizeof(t_pos))))
+		ft_perror();
+	new->x = 0;
+	new->y = 0;
+	return (new);
 }

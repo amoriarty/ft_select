@@ -6,7 +6,7 @@
 #    By: alegent <alegent@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/04 09:54:26 by alegent           #+#    #+#              #
-#    Updated: 2015/05/28 11:37:42 by alegent          ###   ########.fr        #
+#    Updated: 2015/05/28 12:09:43 by alegent          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,11 @@ NAME= ft_select
 #SRC BLOC
 # define all the .c file in the variable SRC NAME
 SRC_PATH= srcs/
-SRC_NAME= main.c
+SRC_NAME= main.c \
+	  ft_newenv.c \
+	  ft_newpos.c \
+	  ft_newlst.c \
+	  ft_sglt.c
 SRC= $(addprefix $(SRC_PATH), $(SRC_NAME))
 
 #OBJ BLOCK

@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_newlst.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/28 11:37:47 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/28 12:25:39 by alegent          ###   ########.fr       */
+/*   Created: 2015/05/28 12:03:52 by alegent           #+#    #+#             */
+/*   Updated: 2015/05/28 12:04:53 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-int						main(int ac, char **av)
+t_lst						*ft_newlst(void)
 {
-	(void)ac;
-	(void)av;
-	return (EXIT_SUCCESS);
+	t_lst					*new;
+
+	if (!(new = (t_lst *)malloc(sizeof(t_lst))))
+		ft_perror();
+	new->entry = NULL;
+	new->next = NULL;
+	new->prev = NULL;
+	return (new);
 }
