@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_handler.c                                       :+:      :+:    :+:   */
+/*   ft_lstlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/28 13:57:20 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/29 12:11:28 by alegent          ###   ########.fr       */
+/*   Created: 2015/05/29 12:11:50 by alegent           #+#    #+#             */
+/*   Updated: 2015/05/29 12:14:48 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-void						ft_handler(int n)
+int								ft_lstlen(void)
 {
-	t_env					*env;
+	int							res;
+	t_env						*env;
+	t_lst						*tmp;
 
-	if (n == SIGWINCH)
+	res = 0;
+	env = ft_sglt();
+	tmp = env->arg->next;
+	while (tmp != env->arg)
 	{
-		env = ft_sglt();
-		if (tgetent(NULL, env->env) == ERROR)
-			ft_perror();
-		env->screen->x = tgetnum("co");
-		env->screen->y = tgetnum("li");
-		if (env->lenmax > env->screen->x || ft_lstlen() > env->screen->y)
-		{
-			ft_unsetenv();
-			ft_perror();
-		}
-		else
-			ft_plst();
+		res = (res < tmp->pos->y) ? tmp->pos->y : res;
+		tmp = tmp->next;
 	}
+	return (res + 1);
 }

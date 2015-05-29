@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 11:38:47 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/29 12:08:14 by alegent          ###   ########.fr       */
+/*   Updated: 2015/05/29 12:11:42 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void					ft_select(void);
 void					ft_poscal(void);
 void					ft_lenmax(void);
 void					ft_plst(void);
+int						ft_lstlen(void);
 
 /*
 ** FONCTIONS TEMPORAIRE

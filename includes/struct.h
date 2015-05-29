@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 11:40:02 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/29 12:07:38 by alegent          ###   ########.fr       */
+/*   Updated: 2015/05/29 12:11:15 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ struct								s_env
 	t_pos							*screen;
 	t_lst							*arg;
 	int								lenmax;
-	int								lstlen;
 };
 
 struct								s_lst
