@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 17:14:36 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/28 17:47:19 by alegent          ###   ########.fr       */
+/*   Updated: 2015/05/29 12:06:09 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void						ft_poscal(void)
 {
-	int					x;
-	int					y;
-	int					col;
+	int						x;
+	int						y;
+	int						col;
 	t_env					*env;
 	t_lst					*tmp;
 

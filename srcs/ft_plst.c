@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 17:49:31 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/29 10:28:23 by alegent          ###   ########.fr       */
+/*   Updated: 2015/05/29 12:06:45 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void						ft_plst(void)
 	ft_putstr(tgetstr("cl", NULL));
 	while (tmp != env->arg)
 	{
-		tputs(tgoto(tgetstr("cm", NULL), tmp->pos->x, tmp->pos->y), 1, ft_print);
+		tputs(tgoto(tgetstr("cm", NULL), tmp->pos->x, tmp->pos->y),
+				1, ft_print);
 		ft_putstr(tmp->entry);
 		tmp = tmp->next;
 	}

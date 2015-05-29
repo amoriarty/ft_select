@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 11:40:02 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/28 17:31:48 by alegent          ###   ########.fr       */
+/*   Updated: 2015/05/29 12:07:38 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,28 +18,28 @@ typedef struct s_env				t_env;
 typedef struct s_lst				t_lst;
 typedef struct s_pos				t_pos;
 
-struct						s_env
+struct								s_env
 {
-	char					*env;
-	t_term					*term;
-	t_pos					*screen;
-	t_lst					*arg;
-	int					lenmax;
-	int					lstlen;
+	char							*env;
+	t_term							*term;
+	t_pos							*screen;
+	t_lst							*arg;
+	int								lenmax;
+	int								lstlen;
 };
 
-struct						s_lst
+struct								s_lst
 {
-	char					*entry;
-	t_pos					*pos;
-	t_lst					*next;
-	t_lst					*prev;
+	char							*entry;
+	t_pos							*pos;
+	t_lst							*next;
+	t_lst							*prev;
 };
 
-struct						s_pos
+struct								s_pos
 {
-	int					x;
-	int					y;
+	int								x;
+	int								y;
 };
 
 #endif

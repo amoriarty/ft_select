@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 11:38:47 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/28 17:55:14 by alegent          ###   ########.fr       */
+/*   Updated: 2015/05/29 12:08:14 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,6 @@ void					ft_plst(void);
 */
 
 void					tmp_plst(void);
-int					ft_print(int n);
+int						ft_print(int n);
 
 #endif
