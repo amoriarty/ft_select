@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 11:38:47 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/29 12:11:42 by alegent          ###   ########.fr       */
+/*   Updated: 2015/05/29 16:41:41 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,8 @@
 # include <signal.h>
 # include <sys/termios.h>
 # define BUF 3
-# define REG 0
-# define UNDER 1
-# define REVERSE 2
-# define BOTH 3
+# define UNDER (1 << 0)
+# define REVERSE (1 << 1)
 
 void					ft_setenv(void);
 void					ft_unsetenv(void);
@@ -40,12 +38,12 @@ void					ft_poscal(void);
 void					ft_lenmax(void);
 void					ft_plst(void);
 int						ft_lstlen(void);
+int						ft_print(int n);
 
 /*
 ** FONCTIONS TEMPORAIRE
 */
 
 void					tmp_plst(void);
-int						ft_print(int n);
 
 #endif

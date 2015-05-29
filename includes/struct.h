@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 11:40:02 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/29 12:11:15 by alegent          ###   ########.fr       */
+/*   Updated: 2015/05/29 16:21:10 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ struct								s_env
 struct								s_lst
 {
 	char							*entry;
+	char							flag;
 	t_pos							*pos;
 	t_lst							*next;
 	t_lst							*prev;

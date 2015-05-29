@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 12:03:52 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/28 14:09:00 by alegent          ###   ########.fr       */
+/*   Updated: 2015/05/29 16:39:27 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ t_lst						*ft_newlst(void)
 	if (!(new = (t_lst *)malloc(sizeof(t_lst))))
 		ft_perror();
 	new->entry = NULL;
+	new->flag = 0;
 	new->pos = ft_newpos();
 	new->next = NULL;
 	new->prev = NULL;
