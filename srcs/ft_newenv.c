@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 12:05:08 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/28 17:34:38 by alegent          ###   ########.fr       */
+/*   Updated: 2015/05/29 12:17:25 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,5 @@ t_env						*ft_newenv(void)
 	new->screen = ft_newpos();
 	new->arg = ft_newroot();
 	new->lenmax = 0;
-	new->lstlen = 0;
 	return (new);
 }
