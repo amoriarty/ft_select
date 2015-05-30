@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 11:38:47 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/30 10:15:08 by alegent          ###   ########.fr       */
+/*   Updated: 2015/05/30 10:39:43 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 # define FT_SELECT_H
 # include "libft.h"
 # include "struct.h"
+# include "define.h"
 # include <curses.h>
 # include <term.h>
 # include <termios.h>
 # include <signal.h>
 # include <sys/termios.h>
-# define BUF 3
-# define UNDER (1 << 0)
-# define REVERSE (1 << 1)
 
 void					ft_setenv(void);
 void					ft_unsetenv(void);
@@ -40,11 +38,6 @@ void					ft_plst(void);
 int						ft_lstlen(void);
 int						ft_print(int n);
 void					ft_deletenode(t_lst *node);
-
-/*
-** FONCTIONS TEMPORAIRE
-*/
-
-void					tmp_plst(void);
+void					ft_escape(t_lst **node);
 
 #endif

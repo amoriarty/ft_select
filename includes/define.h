@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tmp_plst.c                                         :+:      :+:    :+:   */
+/*   define.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/28 17:04:12 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/28 17:04:13 by alegent          ###   ########.fr       */
+/*   Created: 2015/05/30 10:20:50 by alegent           #+#    #+#             */
+/*   Updated: 2015/05/30 10:25:32 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_select.h"
+#ifndef DEFINE_H
+# define DEFINE_H
+# define BUF 3
+# define UNDER (1 << 0)
+# define REVERSE (1 << 1)
+# define ESC 27
+# define DEL 127
+# define SPACE 32
+# define RETURN 10
 
-void					tmp_plst(void)
-{
-	t_env				*env;
-	t_lst				*tmp;
-
-	env = ft_sglt();
-	tmp = env->arg->next;
-	while (tmp != env->arg)
-	{
-		ft_putendl(tmp->entry);
-		tmp = tmp->next;
-	}
-}
+#endif
