@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 11:38:47 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/30 11:40:35 by alegent          ###   ########.fr       */
+/*   Updated: 2015/05/30 11:46:50 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_lst					*ft_newlst(void);
 t_lst					*ft_newroot(void);
 t_env					*ft_sglt(void);
 void					ft_handler(int n);
-unsigned char				*ft_gettouch(void);
+char					*ft_gettouch(void);
 void					ft_insertnode(char *entry);
 void					ft_select(void);
 void					ft_poscal(void);
