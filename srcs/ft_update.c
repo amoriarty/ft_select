@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/30 11:39:22 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/30 11:40:17 by alegent          ###   ########.fr       */
+/*   Updated: 2015/05/30 12:50:24 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,4 +15,5 @@
 void					ft_update(t_lst *node)
 {
 	tputs(tgoto(tgetstr("cm", NULL), node->pos->x, node->pos->y), 1, ft_print);
+	ft_pflag(node->entry, node->flag);
 }
