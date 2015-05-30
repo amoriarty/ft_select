@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   define.h                                           :+:      :+:    :+:   */
+/*   ft_pflag.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/30 10:20:50 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/30 11:07:56 by alegent          ###   ########.fr       */
+/*   Created: 2015/05/30 10:49:07 by alegent           #+#    #+#             */
+/*   Updated: 2015/05/30 10:59:49 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DEFINE_H
-# define DEFINE_H
-# define BUF 3
-# define UNDER (1 << 0)
-# define REVERSE (1 << 1)
-# define ESC 27
-# define DEL 127
-# define SPACE 32
-# define RETURN 10
-# define DOWN 27
+#include "ft_select.h"
 
-#endif
+void					ft_pflag(char *entry, char flag)
+{
+	if (flag & REVERSE)
+		ft_putstr(tgetstr("mr", NULL));
+	if (flag & UNDER)
+		ft_putstr(tgetstr("us", NULL));
+	ft_putstr(entry);
+	if (flag & (UNDER | REVERSE))
+		ft_putstr(tgetstr("me", NULL));
+}
