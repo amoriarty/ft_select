@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 17:05:11 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/29 12:07:49 by alegent          ###   ########.fr       */
+/*   Updated: 2015/05/30 10:17:21 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,24 @@
 
 void						ft_select(void)
 {
+	t_env					*env;
+	t_lst					*node;
+	t_lst					*tmp;
+	char					*touch;
+
+	env = ft_sglt();
 	ft_lenmax();
 	ft_plst();
-	ft_gettouch();
+	node = env->arg->next;
+	while (*(touch = ft_gettouch()) != 13 && node != env->arg)
+	{
+		if (*touch == 27)
+		{
+			tmp = node->next;
+			ft_deletenode(node);
+			node = tmp;
+			ft_lenmax();
+			ft_plst();
+		}
+	}
 }

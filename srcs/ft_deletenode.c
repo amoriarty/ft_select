@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lenmax.c                                        :+:      :+:    :+:   */
+/*   ft_deletenode.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/28 17:17:25 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/30 09:57:25 by alegent          ###   ########.fr       */
+/*   Created: 2015/05/30 09:59:03 by alegent           #+#    #+#             */
+/*   Updated: 2015/05/30 10:15:40 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-void					ft_lenmax(void)
+void						ft_deletenode(t_lst *node)
 {
-	t_env				*env;
-	t_lst				*tmp;
-
-	env = ft_sglt();
-	tmp = env->arg->next;
-	while (tmp != env->arg)
-	{
-		env->lenmax = ((int)ft_strlen(tmp->entry) > env->lenmax) ?
-			(int)ft_strlen(tmp->entry) : env->lenmax;
-		tmp = tmp->next;
-	}
-	env->lenmax++;
+	node->prev->next = node->next;
+	node->next->prev = node->prev;
+	free(node);
 }
