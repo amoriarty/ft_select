@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   define.h                                           :+:      :+:    :+:   */
+/*   ft_update.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/30 10:20:50 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/30 11:29:02 by alegent          ###   ########.fr       */
+/*   Created: 2015/05/30 11:39:22 by alegent           #+#    #+#             */
+/*   Updated: 2015/05/30 11:40:17 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DEFINE_H
-# define DEFINE_H
-# define BUF 3
-# define UNDER (1 << 0)
-# define REVERSE (1 << 1)
-# define ESC 27
-# define DEL 127
-# define SPACE 32
-# define RETURN 10
+#include "ft_select.h"
 
-#endif
+void					ft_update(t_lst *node)
+{
+	tputs(tgoto(tgetstr("cm", NULL), node->pos->x, node->pos->y), 1, ft_print);
+}
