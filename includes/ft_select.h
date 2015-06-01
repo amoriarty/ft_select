@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 11:38:47 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/30 11:46:50 by alegent          ###   ########.fr       */
+/*   Updated: 2015/06/01 11:26:40 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@ void					ft_deletenode(t_lst *node);
 void					ft_escape(t_lst **node);
 void					ft_pflag(char *entry, char flag);
 void					ft_update(t_lst *node);
+int					ft_direction(t_lst **node, char *touch);
 
 #endif
