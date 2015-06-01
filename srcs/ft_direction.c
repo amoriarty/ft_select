@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/01 11:16:03 by alegent           #+#    #+#             */
-/*   Updated: 2015/06/01 18:01:06 by alegent          ###   ########.fr       */
+/*   Updated: 2015/06/01 19:36:37 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,13 @@ static int				ft_left(t_lst **node)
 
 static int				ft_up(t_lst **node)
 {
-	int				start;
 	t_env				*env;
 
 	env = ft_sglt();
 	(*node)->flag &= ~UNDER;
 	ft_update(*node);
-
 	if (ft_lstlen() > 1)
-	{
-		start = (*node)->pos->y;
-		while ((*node)->pos->y == start)
-			*node = ((*node)->prev == env->arg) ? env->arg->prev : (*node)->prev;
-	}
+		ft_findprev(env, node);
 	else
 		*node = ((*node)->prev == env->arg) ? env->arg->prev : (*node)->prev;
 	(*node)->flag |= UNDER;
@@ -60,40 +54,19 @@ static int				ft_right(t_lst **node)
 	return (SUCCESS);
 }
 
-static void				ft_findnext(t_lst **node)
+static int				ft_down(t_lst **node)
 {
-	int				todo;
 	int				len;
-	t_pos				start;
 	t_env				*env;
 
 	env = ft_sglt();
-	if ((len = ft_lstlen()) > 1)
-	{
-		todo = TRUE;
-		start.x = (*node)->pos->x;
-		start.y = ((*node)->pos->y + 1 < len) ? (*node)->pos->y + 1 : 0;
-		*node = ((*node)->next == env->arg) ? env->arg->next : (*node)->next;
-		while ((*node)->pos->y != start.y || todo)
-		{
-			todo = FALSE;
-			while ((*node)->pos->x != start.x)
-			{
-				if ((*node)->pos->y > (*node)->next->pos->y)
-					start.y = 0;
-				*node = ((*node)->next == env->arg) ? env->arg->next : (*node)->next;
-			}
-		}
-	}
-	else
-		*node = ((*node)->next == env->arg) ? env->arg->next : (*node)->next;
-}
-
-static int				ft_down(t_lst **node)
-{
+	len = ft_lstlen();
 	(*node)->flag &= ~UNDER;
 	ft_update(*node);
-	ft_findnext(node);
+	if (len > 1)
+		ft_findnext(env, node, len);
+	else
+		*node = ((*node)->next == env->arg) ? env->arg->next : (*node)->next;
 	(*node)->flag |= UNDER;
 	ft_update(*node);
 	return (SUCCESS);
