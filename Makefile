@@ -6,7 +6,7 @@
 #    By: alegent <alegent@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/04 09:54:26 by alegent           #+#    #+#              #
-#    Updated: 2015/06/01 11:34:04 by alegent          ###   ########.fr        #
+#    Updated: 2015/06/01 12:25:12 by alegent          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ SRC_NAME= main.c \
 	  ft_print.c \
 	  ft_lstlen.c \
 	  ft_deletenode.c \
-	  ft_escape.c \
+	  ft_del.c \
 	  ft_pflag.c \
 	  ft_update.c \
 	  ft_direction.c \

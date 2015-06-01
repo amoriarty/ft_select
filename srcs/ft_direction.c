@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/01 11:16:03 by alegent           #+#    #+#             */
-/*   Updated: 2015/06/01 12:15:16 by alegent          ###   ########.fr       */
+/*   Updated: 2015/06/01 13:20:22 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,16 +62,16 @@ static int				ft_right(t_lst **node)
 
 static int				ft_down(t_lst **node)
 {
-	int				start;
+	t_pos				start;
 	t_env				*env;
 
 	env = ft_sglt();
 	(*node)->flag &= ~UNDER;
 	ft_update(*node);
-	if (ft_lstlen())
+	if (ft_lstlen() > 1)
 	{
-		start = (*node)->pos->y;
-		while ((*node)->pos->y == start)
+		start.y = (*node)->pos->y;
+		while ((*node)->pos->y == start.y)
 			*node = ((*node)->next == env->arg) ? env->arg->next : (*node)->next;
 	}
 	else

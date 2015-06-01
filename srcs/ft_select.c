@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 17:05:11 by alegent           #+#    #+#             */
-/*   Updated: 2015/06/01 11:38:51 by alegent          ###   ########.fr       */
+/*   Updated: 2015/06/01 13:43:54 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,24 @@ void						ft_select(void)
 	ft_plst();
 	while (*(touch = ft_gettouch()) != RETURN && ft_over() > 1)
 	{
-		if (touch[0] == SPACE)
+		if (ft_direction(&node, touch) == FAILURE)
 		{
-			if (node->flag & REVERSE)
-				node->flag &= ~REVERSE;
-			else
-				node->flag |= REVERSE;
-			ft_update(node);
+			if (touch[0] == SPACE)
+			{
+				if (node->flag & REVERSE)
+					node->flag &= ~REVERSE;
+				else
+					node->flag |= REVERSE;
+				ft_update(node);
+			}
+			else if (touch[0] == DEL && (tgetstr("kb", NULL) || tgetstr("dc", NULL)))
+				ft_del(&node);
+			else if (touch[0] == ESC)
+			{
+				ft_unsetenv();
+				exit(EXIT_SUCCESS);
+			}
 		}
-		else if (ft_direction(&node, touch) == FAILURE
-				&& (touch[0] == ESC || touch[0] == DEL))
-			ft_escape(&node);
-//		else if (touch[0] == ESC || touch[0] == DEL)
-//			ft_escape(&node);
 		free(touch);
 	}
 }
