@@ -6,7 +6,7 @@
 #    By: alegent <alegent@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/04 09:54:26 by alegent           #+#    #+#              #
-#    Updated: 2015/06/01 18:36:11 by alegent          ###   ########.fr        #
+#    Updated: 2015/06/01 20:47:11 by alegent          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,8 @@ SRC_NAME= main.c \
 	  ft_update.c \
 	  ft_direction.c \
 	  ft_over.c \
-	  ft_find.c
+	  ft_find.c \
+	  ft_space.c
 SRC= $(addprefix $(SRC_PATH), $(SRC_NAME))
 
 #OBJ BLOCK

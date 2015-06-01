@@ -6,11 +6,17 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 17:05:11 by alegent           #+#    #+#             */
-/*   Updated: 2015/06/01 14:29:17 by alegent          ###   ########.fr       */
+/*   Updated: 2015/06/01 20:47:31 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
+
+static void					ft_end(int n)
+{
+	ft_unsetenv();
+	exit(n);
+}
 
 void						ft_select(void)
 {
@@ -26,27 +32,15 @@ void						ft_select(void)
 	while (*(touch = ft_gettouch()) != RETURN)
 	{
 		if (ft_over() <= 1)
-		{
-			ft_unsetenv();
-			exit(EXIT_SUCCESS);
-		}
+			ft_end(EXIT_SUCCESS);
 		if (ft_direction(&node, touch) == FAILURE)
 		{
 			if (touch[0] == SPACE)
-			{
-				if (node->flag & REVERSE)
-					node->flag &= ~REVERSE;
-				else
-					node->flag |= REVERSE;
-				ft_update(node);
-			}
+				ft_space(env, &node);
 			else if (touch[0] == DEL || touch[BUF - 2] == '~')
 				ft_del(&node);
 			else if (touch[0] == ESC)
-			{
-				ft_unsetenv();
-				exit(EXIT_SUCCESS);
-			}
+				ft_end(EXIT_SUCCESS);
 		}
 		free(touch);
 	}
