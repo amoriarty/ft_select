@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 14:38:29 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/30 10:41:37 by alegent          ###   ########.fr       */
+/*   Updated: 2015/06/01 20:35:33 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ void						ft_setenv(void)
 	t_env					*env;
 
 	env = ft_sglt();
-	if (tgetent(NULL, (env->env = getenv("TERM"))) == ERROR)
+	if (!(env->env = getenv("TERM")))
+		ft_puterror("ft_select", "TERM variable not found.");
+	if (tgetent(NULL, env->env) == ERROR)
 		ft_perror();
 	if (tcgetattr(0, env->term) == ERROR)
 		ft_perror();
