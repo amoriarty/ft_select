@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 17:05:11 by alegent           #+#    #+#             */
-/*   Updated: 2015/06/01 13:43:54 by alegent          ###   ########.fr       */
+/*   Updated: 2015/06/01 14:29:17 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,13 @@ void						ft_select(void)
 	node = env->arg->next;
 	node->flag |= UNDER;
 	ft_plst();
-	while (*(touch = ft_gettouch()) != RETURN && ft_over() > 1)
+	while (*(touch = ft_gettouch()) != RETURN)
 	{
+		if (ft_over() <= 1)
+		{
+			ft_unsetenv();
+			exit(EXIT_SUCCESS);
+		}
 		if (ft_direction(&node, touch) == FAILURE)
 		{
 			if (touch[0] == SPACE)
@@ -35,7 +40,7 @@ void						ft_select(void)
 					node->flag |= REVERSE;
 				ft_update(node);
 			}
-			else if (touch[0] == DEL && (tgetstr("kb", NULL) || tgetstr("dc", NULL)))
+			else if (touch[0] == DEL || touch[BUF - 2] == '~')
 				ft_del(&node);
 			else if (touch[0] == ESC)
 			{
