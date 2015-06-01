@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/01 11:16:03 by alegent           #+#    #+#             */
-/*   Updated: 2015/06/01 13:20:22 by alegent          ###   ########.fr       */
+/*   Updated: 2015/06/01 18:01:06 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int				ft_up(t_lst **node)
 	(*node)->flag &= ~UNDER;
 	ft_update(*node);
 
-	if (ft_lstlen())
+	if (ft_lstlen() > 1)
 	{
 		start = (*node)->pos->y;
 		while ((*node)->pos->y == start)
@@ -60,22 +60,40 @@ static int				ft_right(t_lst **node)
 	return (SUCCESS);
 }
 
-static int				ft_down(t_lst **node)
+static void				ft_findnext(t_lst **node)
 {
+	int				todo;
+	int				len;
 	t_pos				start;
 	t_env				*env;
 
 	env = ft_sglt();
-	(*node)->flag &= ~UNDER;
-	ft_update(*node);
-	if (ft_lstlen() > 1)
+	if ((len = ft_lstlen()) > 1)
 	{
-		start.y = (*node)->pos->y;
-		while ((*node)->pos->y == start.y)
-			*node = ((*node)->next == env->arg) ? env->arg->next : (*node)->next;
+		todo = TRUE;
+		start.x = (*node)->pos->x;
+		start.y = ((*node)->pos->y + 1 < len) ? (*node)->pos->y + 1 : 0;
+		*node = ((*node)->next == env->arg) ? env->arg->next : (*node)->next;
+		while ((*node)->pos->y != start.y || todo)
+		{
+			todo = FALSE;
+			while ((*node)->pos->x != start.x)
+			{
+				if ((*node)->pos->y > (*node)->next->pos->y)
+					start.y = 0;
+				*node = ((*node)->next == env->arg) ? env->arg->next : (*node)->next;
+			}
+		}
 	}
 	else
 		*node = ((*node)->next == env->arg) ? env->arg->next : (*node)->next;
+}
+
+static int				ft_down(t_lst **node)
+{
+	(*node)->flag &= ~UNDER;
+	ft_update(*node);
+	ft_findnext(node);
 	(*node)->flag |= UNDER;
 	ft_update(*node);
 	return (SUCCESS);
