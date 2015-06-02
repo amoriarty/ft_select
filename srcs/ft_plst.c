@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 17:49:31 by alegent           #+#    #+#             */
-/*   Updated: 2015/06/02 12:09:47 by alegent          ###   ########.fr       */
+/*   Updated: 2015/06/02 18:32:02 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void						ft_plst(void)
 	env = ft_sglt();
 	tmp = env->arg->next;
 	ft_poscal();
-	ft_putstr(tgetstr("cl", NULL));
+	ft_putstr_fd(tgetstr("cl", NULL), ft_tty());
 	while (tmp != env->arg)
 	{
 		y = tmp->pos->y - env->scroll;

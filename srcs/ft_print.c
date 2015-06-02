@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 17:48:40 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/29 10:28:08 by alegent          ###   ########.fr       */
+/*   Updated: 2015/06/02 18:32:34 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int					ft_print(int n)
 {
-	ft_putchar((char)n);
+	ft_putchar_fd((char)n, ft_tty());
 	return (SUCCESS);
 }
