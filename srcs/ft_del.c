@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/01 12:24:54 by alegent           #+#    #+#             */
-/*   Updated: 2015/06/01 12:24:59 by alegent          ###   ########.fr       */
+/*   Updated: 2015/06/02 11:27:27 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void						ft_del(t_lst **node)
 	t_lst					*tmp;
 
 	env = ft_sglt();
-	tmp = ((*node)->next == env->arg)? env->arg->next : (*node)->next;
+	tmp = ((*node)->next == env->arg) ? env->arg->next : (*node)->next;
 	ft_deletenode(*node);
 	*node = tmp;
 	(*node)->flag |= UNDER;

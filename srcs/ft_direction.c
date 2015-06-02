@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/01 11:16:03 by alegent           #+#    #+#             */
-/*   Updated: 2015/06/01 19:36:37 by alegent          ###   ########.fr       */
+/*   Updated: 2015/06/02 11:27:56 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static int				ft_right(t_lst **node)
 
 static int				ft_down(t_lst **node)
 {
-	int				len;
+	int					len;
 	t_env				*env;
 
 	env = ft_sglt();
@@ -72,7 +72,7 @@ static int				ft_down(t_lst **node)
 	return (SUCCESS);
 }
 
-int					ft_direction(t_lst **node, char *touch)
+int						ft_direction(t_lst **node, char *touch)
 {
 	if (touch[0] == ESC)
 	{

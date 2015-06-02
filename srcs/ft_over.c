@@ -6,15 +6,15 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/01 11:31:39 by alegent           #+#    #+#             */
-/*   Updated: 2015/06/01 11:38:38 by alegent          ###   ########.fr       */
+/*   Updated: 2015/06/02 11:29:21 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-int					ft_over(void)
+int						ft_over(void)
 {
-	int				over;
+	int					over;
 	t_env				*env;
 	t_lst				*lst;
 
