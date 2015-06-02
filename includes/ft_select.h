@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 11:38:47 by alegent           #+#    #+#             */
-/*   Updated: 2015/06/02 14:01:22 by alegent          ###   ########.fr       */
+/*   Updated: 2015/06/02 17:48:31 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include "libft.h"
 # include "struct.h"
 # include "define.h"
+# include <fcntl.h>
 # include <curses.h>
 # include <term.h>
 # include <termios.h>
@@ -50,5 +51,6 @@ int						ft_down(t_lst **node);
 int						ft_right(t_lst **node);
 int						ft_up(t_lst **node);
 int						ft_left(t_lst **node);
+int						ft_tty(void);
 
 #endif
