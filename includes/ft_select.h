@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 11:38:47 by alegent           #+#    #+#             */
-/*   Updated: 2015/06/01 20:46:22 by alegent          ###   ########.fr       */
+/*   Updated: 2015/06/02 14:01:22 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,9 @@ int						ft_over(void);
 void					ft_findnext(t_env *env, t_lst **node, int len);
 void					ft_findprev(t_env *env, t_lst **node);
 void					ft_space(t_env *env, t_lst **node);
+int						ft_down(t_lst **node);
+int						ft_right(t_lst **node);
+int						ft_up(t_lst **node);
+int						ft_left(t_lst **node);
 
 #endif
