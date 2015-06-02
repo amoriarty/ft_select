@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 17:49:31 by alegent           #+#    #+#             */
-/*   Updated: 2015/05/30 10:50:45 by alegent          ###   ########.fr       */
+/*   Updated: 2015/06/02 12:09:47 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,24 @@
 
 void						ft_plst(void)
 {
+	int						y;
 	t_env					*env;
 	t_lst					*tmp;
 
+	y = 0;
 	env = ft_sglt();
 	tmp = env->arg->next;
 	ft_poscal();
 	ft_putstr(tgetstr("cl", NULL));
 	while (tmp != env->arg)
 	{
-		tputs(tgoto(tgetstr("cm", NULL), tmp->pos->x, tmp->pos->y),
-				1, ft_print);
-		ft_pflag(tmp->entry, tmp->flag);
+		y = tmp->pos->y - env->scroll;
+		if (y > -1 && y < env->screen->y)
+		{
+			tputs(tgoto(tgetstr("cm", NULL), tmp->pos->x, y),
+					1, ft_print);
+			ft_pflag(tmp->entry, tmp->flag);
+		}
 		tmp = tmp->next;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/01 11:16:03 by alegent           #+#    #+#             */
-/*   Updated: 2015/06/02 11:27:56 by alegent          ###   ########.fr       */
+/*   Updated: 2015/06/02 12:32:35 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,20 @@ static int				ft_left(t_lst **node)
 	ft_update(*node);
 	*node = ((*node)->prev == env->arg) ? env->arg->prev : (*node)->prev;
 	(*node)->flag |= UNDER;
-	ft_update(*node);
+	if ((*node)->pos->y - env->scroll >= env->screen->y)
+	{
+		env->scroll = (*node)->pos->y - env->screen->y;
+		env->scroll++;
+		ft_plst();
+	}
+	else if ((*node)->pos->y < env->screen->y + env->scroll
+			&& env->scroll > 0)
+	{
+		env->scroll--;
+		ft_plst();
+	}
+	else
+		ft_update(*node);
 	return (SUCCESS);
 }
 
@@ -37,7 +50,20 @@ static int				ft_up(t_lst **node)
 	else
 		*node = ((*node)->prev == env->arg) ? env->arg->prev : (*node)->prev;
 	(*node)->flag |= UNDER;
-	ft_update(*node);
+	if ((*node)->pos->y - env->scroll >= env->screen->y)
+	{
+		env->scroll = (*node)->pos->y - env->screen->y;
+		env->scroll++;
+		ft_plst();
+	}
+	else if ((*node)->pos->y <= env->screen->y + env->scroll
+			&& env->scroll > 0)
+	{
+		env->scroll--;
+		ft_plst();
+	}
+	else
+		ft_update(*node);
 	return (SUCCESS);
 }
 
@@ -50,7 +76,18 @@ static int				ft_right(t_lst **node)
 	ft_update(*node);
 	*node = ((*node)->next == env->arg) ? env->arg->next : (*node)->next;
 	(*node)->flag |= UNDER;
-	ft_update(*node);
+	if ((*node)->pos->y - env->scroll >= env->screen->y)
+	{
+		env->scroll++;
+		ft_plst();
+	}
+	else if ((*node)->pos->y == 0)
+	{
+		env->scroll = 0;
+		ft_plst();
+	}
+	else
+		ft_update(*node);
 	return (SUCCESS);
 }
 
@@ -68,7 +105,18 @@ static int				ft_down(t_lst **node)
 	else
 		*node = ((*node)->next == env->arg) ? env->arg->next : (*node)->next;
 	(*node)->flag |= UNDER;
-	ft_update(*node);
+	if ((*node)->pos->y - env->scroll >= env->screen->y)
+	{
+		env->scroll++;
+		ft_plst();
+	}
+	else if ((*node)->pos->y == 0)
+	{
+		env->scroll = 0;
+		ft_plst();
+	}
+	else
+		ft_update(*node);
 	return (SUCCESS);
 }
 

@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 13:57:20 by alegent           #+#    #+#             */
-/*   Updated: 2015/06/01 11:45:44 by alegent          ###   ########.fr       */
+/*   Updated: 2015/06/02 12:11:33 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ void						ft_handler(int n)
 		if (env->lenmax > env->screen->x || ft_lstlen() > env->screen->y)
 			return ;
 		else
+		{
+			env->scroll = 0;
 			ft_plst();
+		}
 	}
 	else if (n == SIGQUIT || n == SIGINT)
 	{
