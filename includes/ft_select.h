@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 11:38:47 by alegent           #+#    #+#             */
-/*   Updated: 2015/06/04 20:18:07 by alegent          ###   ########.fr       */
+/*   Updated: 2015/06/04 20:42:21 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ int						ft_right(t_lst **node);
 int						ft_up(t_lst **node);
 int						ft_left(t_lst **node);
 int						ft_tty(void);
+void					ft_sentres(void);
 
 #endif
