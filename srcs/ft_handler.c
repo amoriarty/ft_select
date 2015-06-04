@@ -6,11 +6,30 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 13:57:20 by alegent           #+#    #+#             */
-/*   Updated: 2015/06/02 12:11:33 by alegent          ###   ########.fr       */
+/*   Updated: 2015/06/04 20:26:12 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
+
+void						ft_stophandler(int n)
+{
+	char					cp[2];
+
+	if (n == SIGTSTP)
+	{
+		cp[0] = 032;
+		cp[1] = 0;
+		signal(SIGTSTP, SIG_DFL);
+		ioctl(ft_tty(), TIOCSTI, cp);
+	}
+	if (n == SIGCONT)
+	{
+		ft_setenv();
+		signal(SIGTSTP, ft_stophandler);
+		ft_plst();
+	}
+}
 
 void						ft_handler(int n)
 {
@@ -31,9 +50,9 @@ void						ft_handler(int n)
 			ft_plst();
 		}
 	}
-	else if (n == SIGQUIT || n == SIGINT)
+	if (n == SIGQUIT || n == SIGINT)
 	{
 		ft_unsetenv();
-		exit(EXIT_SUCCESS);
+		exit(EXIT_FAILURE);
 	}
 }

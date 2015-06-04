@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 14:38:29 by alegent           #+#    #+#             */
-/*   Updated: 2015/06/04 19:39:17 by alegent          ###   ########.fr       */
+/*   Updated: 2015/06/04 20:19:18 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void						ft_setenv(void)
 	signal(SIGWINCH, ft_handler);
 	signal(SIGINT, ft_handler);
 	signal(SIGQUIT, ft_handler);
+	signal(SIGTSTP, ft_stophandler);
+	signal(SIGCONT, ft_stophandler);
 }
 
 void						ft_unsetenv(void)
