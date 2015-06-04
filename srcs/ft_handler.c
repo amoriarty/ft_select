@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 13:57:20 by alegent           #+#    #+#             */
-/*   Updated: 2015/06/04 20:26:12 by alegent          ###   ########.fr       */
+/*   Updated: 2015/06/04 20:32:58 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@ void						ft_stophandler(int n)
 		cp[1] = 0;
 		signal(SIGTSTP, SIG_DFL);
 		ioctl(ft_tty(), TIOCSTI, cp);
+		ft_unsetenv();
 	}
 	if (n == SIGCONT)
 	{
-		ft_setenv();
 		signal(SIGTSTP, ft_stophandler);
+		ft_setenv();
 		ft_plst();
 	}
 }
