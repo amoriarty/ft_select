@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/04 20:40:25 by alegent           #+#    #+#             */
-/*   Updated: 2015/06/04 20:43:06 by alegent          ###   ########.fr       */
+/*   Updated: 2015/06/04 20:59:33 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ void				ft_sentres(void)
 	while (lst != env->arg)
 	{
 		if (lst->flag & REVERSE)
-			ft_putendl(lst->entry);
+		{
+			ft_putstr(lst->entry);
+			ft_putchar(EOL);
+		}
 		lst = lst->next;
 	}
 }
