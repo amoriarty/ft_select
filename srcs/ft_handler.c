@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 13:57:20 by alegent           #+#    #+#             */
-/*   Updated: 2015/06/05 13:35:31 by alegent          ###   ########.fr       */
+/*   Updated: 2015/06/05 13:37:49 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ void						ft_handler(int n)
 			ft_perror();
 		env->screen->x = tgetnum("co");
 		env->screen->y = tgetnum("li");
-		env->scroll = ((len = ft_lstlen()) > env->screen->y) ? len - env->screen->y : 0;
+		len = ft_lstlen();
+		env->scroll = (len > env->screen->y) ? len - env->screen->y : 0;
 		ft_plst();
 	}
 	if (n == SIGQUIT || n == SIGINT)
