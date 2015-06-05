@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/02 17:39:36 by alegent           #+#    #+#             */
-/*   Updated: 2015/06/04 19:30:18 by alegent          ###   ########.fr       */
+/*   Updated: 2015/06/05 10:25:24 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int										ft_tty(void)
 
 	if (!fd)
 	{
-		if ((fd = open(ttyname(ttyslot()), O_NOCTTY | O_RDWR)) == ERROR)
+		if ((fd = open("/dev/tty", O_NOCTTY | O_RDWR)) == ERROR)
 			ft_perror();
 		if (!isatty(fd))
 			ft_perror();
