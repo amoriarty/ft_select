@@ -6,7 +6,7 @@
 /*   By: alegent <alegent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 13:57:20 by alegent           #+#    #+#             */
-/*   Updated: 2015/06/04 20:32:58 by alegent          ###   ########.fr       */
+/*   Updated: 2015/06/05 13:35:31 by alegent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void						ft_stophandler(int n)
 void						ft_handler(int n)
 {
 	t_env					*env;
+	int						len;
 
 	if (n == SIGWINCH)
 	{
@@ -43,13 +44,8 @@ void						ft_handler(int n)
 			ft_perror();
 		env->screen->x = tgetnum("co");
 		env->screen->y = tgetnum("li");
-		if (env->lenmax > env->screen->x || ft_lstlen() > env->screen->y)
-			return ;
-		else
-		{
-			env->scroll = 0;
-			ft_plst();
-		}
+		env->scroll = ((len = ft_lstlen()) > env->screen->y) ? len - env->screen->y : 0;
+		ft_plst();
 	}
 	if (n == SIGQUIT || n == SIGINT)
 	{
